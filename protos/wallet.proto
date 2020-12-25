@@ -1,0 +1,8 @@
+syntax = "proto3";
+package block;
+
+option go_package=".;chips";
+
+message KeyPair {
+  string privKey = 1;
+}

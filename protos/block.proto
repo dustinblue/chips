@@ -1,0 +1,37 @@
+syntax = "proto3";
+package block;
+
+option go_package=".;chips";
+
+message Block {
+  bytes hashBlock = 1;
+  bytes hashPrevBlock = 2;
+  bytes hashMerkleRoot = 3;
+  uint32 difficulty = 4;
+  repeated Transaction transactions = 5;
+}
+
+message Input {
+  bytes txnHash = 1;
+  int32 index = 2;
+  bytes signature = 3;
+}
+
+/**
+  Outputs are either unspent UTXO or spent TXO
+ */
+message Output {
+  bytes address = 1;  // pay to pub key encumbrance
+  uint64 amount = 2;  // value in coin
+  bool spent = 4;
+}
+
+message Transaction {
+  int32 version = 1;
+  bytes hash = 2;
+  repeated Input inputs = 3;
+  repeated Output outputs = 4;
+  string message = 5;
+}
+
+
