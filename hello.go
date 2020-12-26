@@ -37,7 +37,7 @@ func main() {
     genesis.HashMerkleRoot = make([]byte, 0, 1)
     fmt.Printf("%x", sha256.Sum256(genesis.HashMerkleRoot))
     genesis.Transactions = []*chips.Transaction{&coinbase}
-    fmt.Println("%s", genesis)
+    //fmt.Printf("%s", genesis)
 
     m := protojson.MarshalOptions{UseProtoNames: true, EmitUnpopulated: true}
 
