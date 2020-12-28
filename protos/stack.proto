@@ -1,0 +1,12 @@
+syntax = "proto3";
+package block;
+
+option go_package=".;chips";
+
+message StackItem {
+  bytes data = 1;
+}
+
+message Stack {
+  repeated StackItem items = 1;
+}
